@@ -10,7 +10,7 @@ class Solution {
         int currIndex = 0;
         int lastElem = -101;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i]!= lastElem){
+            if (nums[i] != lastElem) {
                 nums[currIndex++] = nums[i];
                 lastElem = nums[i];
             }
