@@ -5,13 +5,8 @@ import lombok.experimental.Accessors;
 
 import java.util.List;
 
-/**
- * @author svku0919
- * @version 06/12/2023-17:06
- */
-
 @Data
 @Accessors(chain = true)
-class A {
-    private List<B> bs;
+public class Base {
+    private List<A> as;
 }

@@ -5,13 +5,27 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(getAmount("0"));
-        System.out.println(getAmount("1"));
-        System.out.println(getAmount("12"));
-        System.out.println(getAmount("123"));
-        System.out.println(getAmount("1230"));
-        System.out.println(getAmount("9990"));
-        System.out.println(getAmount("10000"));
+        Base base = new Base();
+        List<A> as = new ArrayList<>();
+        as.add(new A().setBs(new ArrayList<>()));
+        as.add(new A().setBs(new ArrayList<>()));
+        as.add(new A().setBs(new ArrayList<>()));
+        ArrayList<B> bs = new ArrayList<>();
+        bs.add(null);
+        bs.add(new B().setB("TestB"));
+        as.add(new A().setBs(bs));
+
+        bs = new ArrayList<>();
+        bs.add(null);
+        bs.add(new B().setB("TestB 2"));
+        as.add(new A().setBs(bs));
+
+        base.setAs(as);
+
+        List<B> list = base.getAs().stream()
+                .flatMap(a -> a.getBs().stream())
+                .toList();
+        System.out.println(list);
     }
 
     public static String getAmount(String priceModificationValue) {
